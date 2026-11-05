@@ -1,0 +1,7 @@
+run-output/
+run-output-bash/
+*.wlf
+*.vcd
+*.ucdb
+transcript
+work/

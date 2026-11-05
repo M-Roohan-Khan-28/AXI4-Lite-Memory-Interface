@@ -1,0 +1,2 @@
+# Keep extracted files byte-for-byte identical to the recorded SoC snapshot.
+* -text

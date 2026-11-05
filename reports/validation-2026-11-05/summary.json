@@ -1,0 +1,119 @@
+{
+    "recorded_at_utc":  "2026-11-05T18:50:58Z",
+    "source_repository":  "https://github.com/rouhan28may-droid/riscv-axi-soc",
+    "source_commit":  "ceacccb687b39af045431f2ce4d1205276780b6a",
+    "original_files_hash_manifest":  "SOURCE_PROVENANCE.json",
+    "original_files_verified":  19,
+    "new_source_sha256":  {
+                              "tb/master_responder_test.sv":  "a0c3864a4fbee107b2c8545917704698a9c43b34a023d9c9512edc5ef5f6e57d",
+                              "tb/slave_model_test.sv":  "cf18f9eed1d414b4e72348431f0cf9d96db0aeb8307db152f04ac67d7b843f0b",
+                              "sim/rtl.f":  "fb29a004a3e16bd8bb76a72c3c2ee5a3f03657c8b2c0976ddc9398837fe44655",
+                              "rtl/axi4_lite_memory_top.sv":  "48c4e15d35dbf0029af49184cf7e2c2655b5fe923862e750a8406ff4a5505323",
+                              "scripts/run_regression.ps1":  "2884476e78528c0322877ec595616036420ec754f22d39d54cc6fa67d8fbec32",
+                              "sim/run.sh":  "f24afb1aa1f4dd15f5c7c431472d2c78cfe827fb269687bf0981bddc64f46345",
+                              "tb/standalone_top_test.sv":  "f36aaea410b1d722edf8824baf3fdba85e2084e7fc2585d5b69a4996ea8f3f9b",
+                              "sim/testbenches.f":  "eea51035fe1dd3dff58fca53da82d9fc1c653bed8710ffa482afca6274bb5daf"
+                          },
+    "simulator_version":  "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+    "command":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"C:\\R_MIGRATION_BACKUP\\Roohan_GitHub_Launch_Kit\\Roohan_GitHub_Launch_Kit\\build\\standalone\\axi4-lite-memory-interface\\scripts\\run_regression.ps1\" -OutputDir \"C:\\R_MIGRATION_BACKUP\\Roohan_GitHub_Launch_Kit\\Roohan_GitHub_Launch_Kit\\build\\test-runs\\2026-11-05\\axi4-lite-final-local\"",
+    "actual_output_directory":  "C:\\R_MIGRATION_BACKUP\\Roohan_GitHub_Launch_Kit\\Roohan_GitHub_Launch_Kit\\build\\test-runs\\2026-11-05\\axi4-lite-final-local",
+    "regression_exit_code":  0,
+    "tests":  [
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# PASS SRAM checks=20 all 16 WSTRB patterns, boundaries, reset retention",
+                      "simulation_errors":  0,
+                      "top":  "sram_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "SRAM depth=1024, direct"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# PASS AXI slave checks=58 AW-first W-first simultaneous, response stalls, WSTRB, errors",
+                      "simulation_errors":  0,
+                      "top":  "axi_slave_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Slave/SRAM base=0x10000000 depth=1024"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# PASS AXI master/slave SRAM 26 transactions with all five channel delays and errors",
+                      "simulation_errors":  0,
+                      "top":  "axi_master_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Master/delays/slave/SRAM base=0x10000000 depth=1024"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# PASS AXI partial AW/W reset, stalled B/R reset, retention, simultaneous read/write, depth=3 bounds",
+                      "simulation_errors":  0,
+                      "top":  "axi_reset_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Slave/SRAM base=0x10000000 depth=3"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# MASTER_RESPONDER_PASS checks=44 writes=3 reads=3",
+                      "simulation_errors":  0,
+                      "top":  "master_responder_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Master vs controlled responder, no SRAM"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# SLAVE_MODEL_PASS checks=245 writes=26 reads=35",
+                      "simulation_errors":  0,
+                      "top":  "slave_model_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Slave/SRAM base=0x30000000 depth=7"
+                  },
+                  {
+                      "seed":  null,
+                      "completed_with_finish":  true,
+                      "compile_errors":  0,
+                      "pass_marker":  "# STANDALONE_TOP_PASS checks=91",
+                      "simulation_errors":  0,
+                      "top":  "standalone_top_test",
+                      "wrapper_test_exit_code":  0,
+                      "simulator_exit_code":  0,
+                      "configuration":  "Integrated top base=0x20000000 depth=5"
+                  }
+              ],
+    "configurations":  [
+                           "SRAM/default depth=1024",
+                           "AXI/default base=0x10000000 depth=1024",
+                           "reset depth=3",
+                           "slave model base=0x30000000 depth=7",
+                           "integration base=0x20000000 depth=5"
+                       ],
+    "fault_injection":  {
+                            "observed":  "Fatal: SRAM addr=0 got=00000000 expected=12345678",
+                            "method":  "Disposable copy: SRAM writes forced to zero",
+                            "clean_source_unchanged":  true,
+                            "wrapper_exit_code":  1
+                        },
+    "wsl_shell":  {
+                      "run_exit_code":  1,
+                      "syntax_exit_code":  0,
+                      "blocker":  "WSL lacks vlib (and other ModelSim tools); full shell regression not run"
+                  },
+    "reproduction_command":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run_regression.ps1 -OutputDir \u003cnew-output-directory\u003e"
+}

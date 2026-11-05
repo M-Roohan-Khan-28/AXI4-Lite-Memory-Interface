@@ -1,0 +1,9 @@
+tb/legacy/axi_delay.sv
+tb/legacy/axi_protocol_checker.sv
+tb/legacy/sram_test.sv
+tb/legacy/axi_slave_test.sv
+tb/legacy/axi_master_test.sv
+tb/legacy/axi_reset_test.sv
+tb/master_responder_test.sv
+tb/slave_model_test.sv
+tb/standalone_top_test.sv
