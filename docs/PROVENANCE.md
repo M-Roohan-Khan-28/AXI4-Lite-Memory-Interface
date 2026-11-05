@@ -1,6 +1,6 @@
 # Provenance
 
-Source repository: https://github.com/rouhan28may-droid/riscv-axi-soc
+Source repository: https://github.com/M-Roohan-Khan-28/RV32I-AXI4-Lite-SoC
 Source commit: `ceacccb687b39af045431f2ce4d1205276780b6a`
 
 The table lists exact byte-for-byte copies. The integration top, two new direct harnesses, integration harness, launchers, and documentation were added only in this standalone repository. No extracted RTL was corrected or modified. The original SoC repository was cloned read-only.
