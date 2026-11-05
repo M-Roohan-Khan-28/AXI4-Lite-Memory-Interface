@@ -1,6 +1,6 @@
 # Version 1 specification
 
-This project extracts the 32-bit AXI4-Lite memory path from `riscv-axi-soc` at source commit `ceacccb687b39af045431f2ce4d1205276780b6a`. The extracted master, slave, interface, and SRAM are byte-for-byte copies; `axi4_lite_memory_top` is the new integration component. No CPU, DMA, burst transfer, interconnect, or UVM environment is included.
+This project extracts the 32-bit AXI4-Lite memory path from `RV32I-AXI4-Lite-SoC` at source commit `ceacccb687b39af045431f2ce4d1205276780b6a`. The extracted master, slave, interface, and SRAM are byte-for-byte copies; `axi4_lite_memory_top` is the new integration component. No CPU, DMA, burst transfer, interconnect, or UVM environment is included.
 
 ## Request interface and master
 

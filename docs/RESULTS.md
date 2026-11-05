@@ -1,6 +1,6 @@
 # Recorded validation — 5 November 2026
 
-The source extraction is from [riscv-axi-soc](https://github.com/rouhan28may-droid/riscv-axi-soc) commit `ceacccb687b39af045431f2ce4d1205276780b6a`. All 19 copied files matched the SHA-256 values in `SOURCE_PROVENANCE.json` before the final run. The hashes of the new RTL, testbenches, scripts and source lists are in the [machine-readable summary](../reports/validation-2026-11-05/summary.json). Original historical logs are preserved in `historical_logs/` and are separate from these fresh results.
+The source extraction is from [RV32I-AXI4-Lite-SoC](https://github.com/M-Roohan-Khan-28/RV32I-AXI4-Lite-SoC) commit `ceacccb687b39af045431f2ce4d1205276780b6a`. All 19 copied files matched the SHA-256 values in `SOURCE_PROVENANCE.json` before the final run. The hashes of the new RTL, testbenches, scripts and source lists are in the [machine-readable summary](../reports/validation-2026-11-05/summary.json). Original historical logs are preserved in `historical_logs/` and are separate from these fresh results.
 
 Tool: `Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020`. On Windows, `vlib`, `vlog`, and `vsim` were taken from `C:\intelFPGA\20.1\modelsim_ase\win32aloem`. The complete PowerShell regression exited **0** after the clean-source run. Each test compiled with zero errors and zero warnings, reached `$finish`, reported zero simulation errors and zero warnings, and had a simulator exit code of 0.
 
