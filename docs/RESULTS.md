@@ -31,3 +31,14 @@ In a disposable project copy, SRAM byte-lane writes were temporarily forced to z
 `wsl bash -n sim/run.sh` exited 0. Running the launcher in this WSL environment exited 1 with `Missing simulator tool: vlib`; Linux/WSL ModelSim execution is therefore **untested**, although the entry point is provided. The Windows PowerShell regression is the validated execution path.
 
 No licensed randomization, covergroups, concurrent assertions, UCDB/code coverage, synthesis, timing closure, FPGA/board testing, or full AXI4-Lite compliance testing was run. The project implements only the bounded behavior described in [SPECIFICATION.md](SPECIFICATION.md). The 256-cycle protocol-checker bound and testbench watchdogs are test assumptions, not AXI protocol timing rules.
+# Required checker integration — 8 November 2026
+
+The project runner at clean detached source
+`8d8887abf1ffb9fcd3b153623419d96343545c47` passed seven functional
+test tops and, as a required separate substep, one legal checker scenario
+plus all eight expected-negative response-order detections. The wrapper
+exited 0. [Fresh raw logs, JSON, simulator version, and the investigated
+failed launcher attempt](../reports/technical-release-2026-11-08/SUMMARY.md)
+are separate from the earlier reports. These qualification detections are
+not added to the seven functional-test count or described as complete AXI4-Lite
+compliance.

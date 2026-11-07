@@ -1,0 +1,12 @@
+Reading pref.tcl
+
+# 2020.1
+
+# vsim -c -onfinish exit sram_test -do "onerror {quit -code 1}; run -all; quit -code 0" 
+# Start time: 03:07:36 on Nov 08,2026
+# ** Error (suppressible): (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 03:07:37 on Nov 08,2026, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+Error loading design
