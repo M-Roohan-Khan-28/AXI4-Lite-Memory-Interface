@@ -35,6 +35,7 @@ foreach ($top in $tests.Keys) {
         if ($LASTEXITCODE -ne 0) { throw "Compilation failed: $top" }
         $psi = New-Object System.Diagnostics.ProcessStartInfo
         $psi.FileName = (Get-Command vsim -ErrorAction Stop).Source
+        $psi.WorkingDirectory = $testOut
         $psi.Arguments = "-c -onfinish exit $top -do `"onerror {quit -code 1}; run -all; quit -code 0`""
         $psi.UseShellExecute = $false
         $psi.RedirectStandardOutput = $true
