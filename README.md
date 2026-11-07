@@ -32,6 +32,11 @@ For WSL/Linux, `bash sim/run.sh /path/to/new-output` is the shell entry point wh
 
 See [specification](docs/SPECIFICATION.md), [test plan](docs/TEST_PLAN.md), [results](docs/RESULTS.md), and [provenance](docs/PROVENANCE.md). The original SoC's three AXI tests, SRAM test, helper modules, and historical logs are preserved under `tb/legacy/` and `historical_logs/`. No processor or SoC file list is copied into the standalone build. `LICENSE_STATUS.md` describes the source licensing state.
 
+The separately qualified [response-order checker](docs/RESPONSE_ORDER_QUALIFICATION.md)
+now observes pre-edge AW/W/AR acceptance and rejects early B/R even under
+backpressure. Its old-checker controls, corrected eight-case qualification,
+fresh seven-test regression, and measured waveform have separate evidence.
+
 ## Limits
 
 This project does not implement bursts, DMA, a CPU, an interconnect, UVM, or new arbitration features. No licensed randomization, covergroup, or concurrent assertion execution is required by the portable regression. The tested results do not establish full AXI4-Lite compliance, coverage closure, synthesis, timing closure, or hardware operation. The source SRAM and master have no hardware timeout; the testbench timeout is an environment guard.
