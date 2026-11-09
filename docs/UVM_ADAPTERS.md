@@ -1,8 +1,8 @@
 # Separate deterministic UVM/SVA adapters
 
 The reusable implementation lives in
-[AMBA-Protocol-Verification](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/3da848965b00f97d7488e4b98e362cf21f67644d/docs/DETERMINISTIC_AXIL_UVM.md)
-at source revision `3da848965b00f97d7488e4b98e362cf21f67644d`.
+[AMBA-Protocol-Verification](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/84e2100ac9c2c89eedcd81aa4b42a06963bc8144/docs/DETERMINISTIC_AXIL_UVM.md)
+at source revision `1263410134a27dda2c93741c3aa526001bf4469a`.
 It pins this repository to `faf43379b24a524999eb2c8ad7e100cde35054c3`.
 These documentation additions change no RTL, existing tests/runners, source
 locks, historical reports, licences or attribution.
@@ -30,36 +30,50 @@ stalls, slave B/R backpressure, address boundaries and pending-transaction reset
 
 ## Reproduce from the locked AMBA source
 
-The [published fresh-clone evidence](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/49d41c5859fd8a5111ee3ba19735d32fe4a6134e/reports/axil-uvm-2026-11-08/SUMMARY.md)
-records **17/17 required substeps PASS, wrapper exit 0** at the locked source
-above. Slave/master/integration completed **274/240/208 transactions** with
-**1,577/1,207/1,044 independent comparisons**, respectively. Thirteen negative
-assertion controls each produced exactly one expected detection; the legal
-control produced none. Five deliberate data/address/progress fault simulations
-were rejected for the intended reasons, with all three fault wrappers exiting
-**1**. These counts are separate from functional coverage, which is NOT RUN.
+The [corrected fresh-clone evidence](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/84e2100ac9c2c89eedcd81aa4b42a06963bc8144/reports/axil-uvm-corrective-2026-11-09/SUMMARY.md)
+records **23/23 required substeps PASS, wrapper exit 0** at corrected source
+`1263410134a27dda2c93741c3aa526001bf4469a`. Slave/master/integration completed
+**274/240/208 transactions** with **1,577/1,207/1,044 independent comparisons**.
+Thirteen negative SVA controls each produced one expected detection; the legal
+SVA control produced none. Six additional request-oracle controls include two
+legal reset/accounting traces and duplicate-write/read traces for both master
+and integration scoreboard modes. Their four negative child wrappers return
+**1** for the specific duplicate oracle fatal; the parent qualifies those
+expected rejections. All ten targeted old/new executions and five rerun
+data/address/progress fault detections have separate raw logs and real exits.
 
-Raw logs, JSON, source hashes, seed `0x28A6BEEF`, eight measured figures, and
-the capture-byte audit are in that report. All 276 archived artifacts matched
-Git blobs and fresh newline-enabled/disabled checkouts; all 17 archived VCDs
-also matched public raw downloads. Original capture bytes are preserved.
+The old checker at `49d41c5859fd8a5111ee3ba19735d32fe4a6134e` missed each
+duplicate, returning 0. The same synthetic public-pin traces keep AXI traffic
+legal and data unchanged, with zero protocol-assertion detections. The corrected
+checker retains AW/W or AR issue flags and accepted-response ownership until
+CPU completion or reset cancellation; it rejects a second transaction/response.
+Both the scoreboard and runner reconcile channel/response counts with CPU
+completions and explicit reset-stage cancellations. The legal controls include
+accepted B/R responses canceled before CPU completion (58 requests, 50 CPU
+completions, 8 cancellations, 34 B and 18 R responses per control).
+
+Raw logs, JSON, source hashes, seed `0x28A6BEEF`, measured waveform figures and
+the byte audit are in the new report. The prior 17-substep report and all
+existing releases/evidence remain unchanged. Functional counts, checker
+qualifications and procedural requirement hits are not functional coverage.
 
 Use unused paths, Python, Git and the already qualified Questa 2025.2/UVM 1.2
 installation. Run sessions serially on the single-session Starter licence:
 
 ```powershell
 git clone --config core.longpaths=true --config core.autocrlf=false https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification.git C:/short/axil-uvm-adapter-source-new
-git -C C:/short/axil-uvm-adapter-source-new checkout --detach 3da848965b00f97d7488e4b98e362cf21f67644d
+git -C C:/short/axil-uvm-adapter-source-new checkout --detach 1263410134a27dda2c93741c3aa526001bf4469a
 python C:/short/axil-uvm-adapter-source-new/scripts/run_axil_uvm.py --output C:/short/axil-uvm-adapter-results-new
 if ($LASTEXITCODE -ne 0) { throw 'Required AXI4-Lite UVM/SVA substep failed or was blocked' }
 ```
 
 The single runner command creates fresh detached DUT source clones and executes
-17 required substeps serially. Tool/library defaults and override flags are in
+23 required substeps serially. Tool/library defaults and override flags are in
 the AMBA guide. It emits actual version, commands, SHA locks/hashes, seed,
 per-target counts, assertion detections, raw logs, VCDs and `results.json`.
 Missing tools/results, simulator errors/fatals and progress/wall timeouts are
-failures. Explicit data, address and dropped-response fault controls must return
+failures, including missing accounting or mismatched bus/CPU/reset totals.
+Explicit data, address and dropped-response fault controls must return
 nonzero and are separate from passing evidence.
 
 ## Limits and unexecuted features
