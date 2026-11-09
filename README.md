@@ -1,5 +1,8 @@
 # AXI4-Lite Master and Slave Memory Interface
 
+See the [separate deterministic UVM/SVA adapters](docs/UVM_ADAPTERS.md) for
+slave, master and integration targets, independent checking and explicit limits.
+
 A standalone, CPU-independent 32-bit AXI4-Lite path connecting a request interface, master, slave, and synchronous SRAM. It includes byte-write strobes, independently handshaken channels, a small integration top, and seven self-checking directed testbenches.
 
 The interface, master, slave, and SRAM were extracted byte for byte from [RV32I-AXI4-Lite-SoC](https://github.com/M-Roohan-Khan-28/RV32I-AXI4-Lite-SoC) at commit `ceacccb687b39af045431f2ce4d1205276780b6a`. The repository adds independent harnesses, launchers, and recorded evidence. Its supported behaviour and verification limits are documented below.
