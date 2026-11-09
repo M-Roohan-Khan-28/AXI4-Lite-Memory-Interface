@@ -1,7 +1,7 @@
 # Separate deterministic UVM/SVA adapters
 
 The reusable implementation lives in
-[AMBA-Protocol-Verification](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/84e2100ac9c2c89eedcd81aa4b42a06963bc8144/docs/DETERMINISTIC_AXIL_UVM.md)
+[AMBA-Protocol-Verification](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/4278d78cdc41edc64f33507ee9e1b4172ff83768/docs/DETERMINISTIC_AXIL_UVM.md)
 at source revision `1263410134a27dda2c93741c3aa526001bf4469a`.
 It pins this repository to `faf43379b24a524999eb2c8ad7e100cde35054c3`.
 These documentation additions change no RTL, existing tests/runners, source
@@ -30,7 +30,7 @@ stalls, slave B/R backpressure, address boundaries and pending-transaction reset
 
 ## Reproduce from the locked AMBA source
 
-The [corrected fresh-clone evidence](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/84e2100ac9c2c89eedcd81aa4b42a06963bc8144/reports/axil-uvm-corrective-2026-11-09/SUMMARY.md)
+The [corrected fresh-clone evidence](https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification/blob/4278d78cdc41edc64f33507ee9e1b4172ff83768/reports/axil-uvm-corrective-2026-11-09/SUMMARY.md)
 records **23/23 required substeps PASS, wrapper exit 0** at corrected source
 `1263410134a27dda2c93741c3aa526001bf4469a`. Slave/master/integration completed
 **274/240/208 transactions** with **1,577/1,207/1,044 independent comparisons**.
@@ -63,7 +63,7 @@ installation. Run sessions serially on the single-session Starter licence:
 ```powershell
 git clone --config core.longpaths=true --config core.autocrlf=false https://github.com/M-Roohan-Khan-28/AMBA-Protocol-Verification.git C:/short/axil-uvm-adapter-source-new
 git -C C:/short/axil-uvm-adapter-source-new checkout --detach 1263410134a27dda2c93741c3aa526001bf4469a
-python C:/short/axil-uvm-adapter-source-new/scripts/run_axil_uvm.py --output C:/short/axil-uvm-adapter-results-new
+& 'C:/Users/CG/AppData/Local/Python/pythoncore-3.14-64/python.exe' C:/short/axil-uvm-adapter-source-new/scripts/run_axil_uvm.py --output C:/short/axil-uvm-adapter-results-new
 if ($LASTEXITCODE -ne 0) { throw 'Required AXI4-Lite UVM/SVA substep failed or was blocked' }
 ```
 
